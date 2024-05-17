@@ -1,1 +1,0 @@
-# programming-2-ex-6
