@@ -246,7 +246,7 @@ def triangles(edges: DirectedGraph): MyList[Triangle] =
 
 You can make use of flatMap, map and filter.
 
-<details>
+</details>
 
 Each cycle should appear only once. For instance, given the edges:
 
@@ -345,6 +345,8 @@ No.
 The fact that we can line up `List` and `Option` easily is because in the standard library, both `List` and `Option` are subtypes of `IterableOnce`, and signatures of useful methods make use of the supertype `InterableOnce`. For example, the signature of `flatMap` in `List` is `def flatMap[B](f: A => IterableOnce[B]): List[B]`.
 
 We will cover this more advanced API at two points later in the course: first to introduce *comprehensions*, and then more generally *monads*.
+
+</details>
 
 ## FoldLeft and Tail Recursion ⭐️
 
@@ -715,6 +717,8 @@ def sqrt(x: Double): Double = {
     (x - res * res) <= eps && (x - res * res) >= -eps
 )
 ```
+
+</details>
 
 In this section, you will practice translating specification from English to code.
 
