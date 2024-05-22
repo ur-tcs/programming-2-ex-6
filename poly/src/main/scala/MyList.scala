@@ -34,26 +34,17 @@ def map[A, B](f: A => B)(l: MyList[A]): MyList[B] =
     case Nil         => Nil
     case Cons(x, xs) => Cons(f(x), map(f)(xs))
 
-def filter[A](f: A => Boolean)(l: MyList[A]): MyList[A] =
-    ???
+//write generic signatures for filter, foldRigh, reduceRight, forall, exists, zip, zipWith here
 
-def foldRight[A,B](base: B, f: (A,B) => B)(l: MyList[A]): B = 
-    ???
-    
-def reduceRight[A](f: (A,A) => A)(l: MyList[A]): A =
-    ???
 
-def forall[A](p: A => Boolean)(l: MyList[A]): Boolean =
-    ???
 
-def exists[A](p: A => Boolean)(l: MyList[A]): Boolean =
-    ???
 
-def zip[A,B](l: MyList[A], m: MyList[B]): MyList[(A,B)] = 
-    ???
 
-def zipWith[A, B, C](l: MyList[A], m: MyList[B])(op: (A, B) => C): MyList[C] =
-    ???
+
+
+
+
+
 
 def elementsAsStrings[A](l: MyList[A]): MyList[String] =
     ???
