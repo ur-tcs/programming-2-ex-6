@@ -6,13 +6,17 @@ The exercise set is intended to help you practice lists and polymorphism.
 
 Exercises marked with ⭐️ are the most important ones. Exercises marked with 🔥 are the most challenging ones. You do not need to complete all exercises to succeed in this class, and you do not need to do all exercises in order.
 
+**Your are allowed to copy/clone/fork this repository, but not to share solutions of the exercise in any public repository or web page.**
+
 ## Warm-up: Polymorphic Lists ⭐️
 
 In previous exercises and labs, we used IntList for lists which elements are integers. This week, we’ll move to polymorphic lists.
 
-Reminder: Algebraic Data Types
+<details><summary> Reminder: Algebraic Data Types </summary>
 
 In week 3, we learned that algebraic data types can be created with the `enum` construct. Check the previous lectures or [this](https://docs.scala-lang.org/scala3/book/types-adts-gadts.html) for more details.
+
+</details>
 
 Polymorphic lists can be defined as an algebraic data type in the following way:
 ```scala
@@ -53,7 +57,7 @@ def tail: MyList[A] = this match
 
 ### Part 1: Higher-order functions ⭐️
 
-In previous weeks, we have implemented higher-order functions on IntLists. For example, `map` was defined as:
+In last week, we have implemented higher-order functions on IntLists. For example, `map` was defined as:
 
 ```scala
 def map(f: Int => Int)(l: IntList): IntList =
@@ -139,23 +143,21 @@ Then, using these APIs of lists:
       ???
 ```
 
-3. Adapt the string functions capitalizeString and wordCount to operate on lists of characters:
+3. Adapt the string functions capitalizeString and wordCount to operate on lists of characters (you will need `toUpper`):
 
 ```scala
-    val capitalizeString: MyList[Char] => MyList[Char] =
-      ???
+    def capitalizeString(l: MyList[Char]): MyList[Char] =
+        ???
 
     def wordCount(l: MyList[Char]): Int =
-      ???
+        ???
 ```
     
-**Beware:** the solution we gave in exercise session 2 for wordCount doesn’t express itself naturally as a fold… 🔥 try to look for a different one!
+**Beware:** the solution from exercise session 2 for wordCount doesn’t express itself naturally as a fold… 🔥 try to look for a different one!
 
 **Strings and Lists**
 
-Both String and List[Char] or MyList[Char] represent sequences of characters. However, it’s usually more efficient and convenient to use String for text processing and manipulation in Scala because String has optimized storage for texts and rich APIs tailored for text operations.
-
-Later this year, we will see a more general trait that covers both Lists and Strings. This will allow us to write unified code for both.
+Both `String` and `List[Char]` or `MyList[Char]` represent sequences of characters. However, it’s usually more efficient and convenient to use `String` for text processing and manipulation in Scala because `String` has optimized storage for texts and rich APIs tailored for text operations.
 
 ### Part 2: More functions: flatMap and cross-product
 
@@ -392,7 +394,7 @@ The main difference between foldLeft and foldRight is that foldLeft is typically
 
 ```scala
     // @tailrec // Uncomment this line.
-    def foldLeft[A, B](l: MyList[A])(base: B, f: (B, A) => B): B =
+    def foldLeft[A, B](base: B, f: (B, A) => B)(l: MyList[A]): B =
       ???
 ```
 
@@ -686,10 +688,7 @@ In this section, your task is to implement a simple stack machine interpreter. T
 
 ```scala
 def interpreteProg(stack: Stack, program: Program): Stack =
-  foldLeft(program)(stack, interpreteInst)
-/*+++
-  ???
-+++*/
+  foldLeft(stack, interpreteInst)(program)
 ```
 
 To do so, you need to first implement the `interpreteInst` function which interprets only one instruction each time:
