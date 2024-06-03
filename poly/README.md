@@ -10,7 +10,7 @@ Exercises marked with ⭐️ are the most important ones. Exercises marked with 
 
 ## Warm-up: Polymorphic Lists ⭐️
 
-In previous exercises and labs, we used IntList for lists which elements are integers. This week, we’ll move to polymorphic lists.
+In previous exercises and labs, we used `IntList` for lists which elements are integers. This week, we’ll move to polymorphic lists.
 
 <details><summary> Reminder: Algebraic Data Types </summary>
 
@@ -57,9 +57,9 @@ def tail: MyList[A] = this match
 
 A skeleton for this part is given in the file `MyList.scala` of the exercise files.
 
-### Part 1: Higher-order functions ⭐️
+### Part 1: Higher-order Functions ⭐️
 
-In last week, we have implemented higher-order functions on IntLists. For example, `map` was defined as:
+In last week, we have implemented higher-order functions on `IntList`s. For example, `map` was defined as:
 
 ```scala
 def map(f: Int => Int)(l: IntList): IntList =
@@ -117,7 +117,7 @@ Do we need to define a similar `foldRightList` on polymorphic lists?
 <details> 
 <summary> Solution </summary>
 
-    No, type variable B can be instantized to MyList[Int].
+No, type variable B can be instantized to `MyList[Int]`.
 
 </details>
 
@@ -170,7 +170,7 @@ You might need `toUpper` and `isWhitespace`
 
 Both `String` and `List[Char]` or `MyList[Char]` represent sequences of characters. However, it’s usually more efficient and convenient to use `String` for text processing and manipulation in Scala because `String` has optimized storage for texts and rich APIs tailored for text operations.
 
-### Part 2: More functions: flatMap and cross-product
+### Part 2: More Functions: flatMap and cross-product
 
 *flatMap*
 
